@@ -1,12 +1,23 @@
 <template>
-  <div>
-    Hello World
-  </div>
-  <button>Increment</button>
-  <p>{{ count }}</p>
-  <button>Decrement</button>
+  <a href="#" @click="view('home')">Home</a>
+  <a href="#" @click="view('counter')">Counter</a>
+  <HomeWelcome v-if="page == 'home'"/>
+  <Counter v-if="page == 'counter'"/>
+  <!-- <home-welcome/>
+  <button @click="toggle">Toggle</button>
+  <component :is="MyComponent" /> -->
+  <!-- <Counter/> -->
 </template>
+
 <script setup>
-import ref from "vue";
-const count = ref(0)
+const page = ref("home")
+function view(name){
+  page.value = name
+}
+
+
+// const MyComponent = ref(resolveComponent("Counter"));
+// function toggle(){
+//   MyComponent.value = resolveComponent("HomeWelcome")
+// }
 </script>
